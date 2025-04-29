@@ -1,0 +1,27 @@
+Package: uscongress
+Type: Package
+Title: Fetch United States Congressional Records (1995-Present)
+Version: 1.0.0
+Authors@R: person("Steph", "Buongiorno",
+                  email = "steph.buon@proton.me",
+                  role = c("aut", "cre"))
+Author: Steph Buongiorno [aut, cre]
+Maintainer: Steph Buongiorno <steph.buon@proton.me>
+Description: Fetch United States Congressional Records from the GovInfo API <https://api.govinfo.gov/docs> such as congressional 
+    speeches, speaker names, and metadata about congressional sessions, and detailed granule records. 
+    Optional parameters allow users to specify congressional sessions, 
+    and the maximum number of speeches to retrieve. Data is parsed, cleaned, and 
+    returned in a structured dataframe for analysis.
+License: GPL-3
+Encoding: UTF-8
+RoxygenNote: 7.3.2
+Imports:
+    httr,
+    dplyr,
+    stringr,
+    rvest,
+    tibble
+Suggests:
+    testthat,
+    knitr,
+    rmarkdown

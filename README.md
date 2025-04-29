@@ -2,7 +2,14 @@
 
 ### `get_congressional_records()`
 
-Retrieve and process Congressional Record speeches from the U.S. Government Publishing Office API.
+Retrieve and process Congressional Record speeches from the [U.S. Government Publishing Office API](https://api.govinfo.gov). Congressional Records are stored as raw text files; this code extracts and organizes the information into a structured format.
+
+The result is a tibble where each row represents a single speech and includes the following fields:
+- Speech text: The full text of the speech.
+- Speaker name: The name of the individual delivering the speech.
+- Date: The date the speech was given.
+- Title: The title of the Congressional Record entry.
+- URL: A link to the full original record.
 
 ## Description
 
@@ -38,16 +45,6 @@ get_congressional_records(API_KEY,
 - If an unsupported session is specified without dates, an error is raised.
 - The function paginates through API results using the `nextOffsetMark` system.
 - Each retrieved speech is cleaned, parsed, and formatted before inclusion in the final tibble.
-
-## Return Value
-
-A tibble (`data.frame`) where each row corresponds to a single speech, including:
-
-- Speech text
-- Speaker name
-- Date
-- Title of the record
-- URL to the full record
 
 ## API Information
 

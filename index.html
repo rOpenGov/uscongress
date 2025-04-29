@@ -65,6 +65,131 @@
 <img src="logo.png" class="logo" alt=""><h1 id="uscongress">uscongress<a class="anchor" aria-label="anchor" href="#uscongress"></a>
 </h1>
 </div>
+<div class="section level3">
+<h3 id="get_congressional_records">
+<code>get_congressional_records</code><a class="anchor" aria-label="anchor" href="#get_congressional_records"></a>
+</h3>
+<p>Retrieve and process Congressional Record speeches from the U.S. Government Publishing Office API.</p>
+</div>
+<div class="section level2">
+<h2 id="description">Description<a class="anchor" aria-label="anchor" href="#description"></a>
+</h2>
+<p>This function queries the Congressional Record collection for a given congressional session and date range. It retrieves speeches from the House and Senate, processes associated metadata, and returns the results in a structured tibble. It supports optional limits on the number of speeches collected.</p>
+<p>By default, if no <code>date_from</code> or <code>date_to</code> are specified, the function automatically sets the date range based on the congressional session provided.</p>
+<p>The function fetches full speech content by retrieving and parsing associated granules from the GovInfo API.</p>
+</div>
+<div class="section level2">
+<h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
+</h2>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/get_congressional_records.html">get_congressional_records</a></span><span class="op">(</span><span class="va">API_KEY</span>,</span>
+<span>                           max_results <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>                           date_from <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>                           date_to <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>                           congress_session <span class="op">=</span> <span class="fl">117</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a>
+</h2>
+<table class="table">
+<colgroup>
+<col width="45%">
+<col width="23%">
+<col width="30%">
+</colgroup>
+<thead><tr class="header">
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><code>API_KEY</code></td>
+<td>String</td>
+<td>Your GovInfo API key. Required to authenticate API requests.</td>
+</tr>
+<tr class="even">
+<td><code>max_results</code></td>
+<td>Integer</td>
+<td>Optional. Maximum number of speeches to retrieve. If <code>NULL</code>, retrieves all available speeches in the session and date range.</td>
+</tr>
+<tr class="odd">
+<td><code>date_from</code></td>
+<td>String</td>
+<td>Optional. Start date (<code>"YYYY-MM-DD"</code>) for filtering speeches. If <code>NULL</code>, determined automatically by <code>congress_session</code>.</td>
+</tr>
+<tr class="even">
+<td><code>date_to</code></td>
+<td>String</td>
+<td>Optional. End date (<code>"YYYY-MM-DD"</code>) for filtering speeches. If <code>NULL</code>, determined automatically by <code>congress_session</code>.</td>
+</tr>
+<tr class="odd">
+<td><code>congress_session</code></td>
+<td>Integer</td>
+<td>Congressional session number (e.g., 117 for 2021–2023). Defaults to 117.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section level2">
+<h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a>
+</h2>
+<ul>
+<li>If <code>date_from</code> and <code>date_to</code> are omitted, the function uses preset start and end dates for sessions from the 104th (1995–1997) through the 118th (2023–2025) Congress.</li>
+<li>If an unsupported session is specified without dates, an error is raised.</li>
+<li>The function paginates through API results using the <code>nextOffsetMark</code> system.</li>
+<li>Each retrieved speech is cleaned, parsed, and formatted before inclusion in the final tibble.</li>
+</ul>
+<p>The following helper functions are expected to be available and correctly implemented:</p>
+<ul>
+<li><code>get_search_results()</code></li>
+<li><code>get_granules()</code></li>
+<li><code>get_granule_summary()</code></li>
+<li><code>get_htm_content()</code></li>
+<li><code>process_speech()</code></li>
+</ul>
+</div>
+<div class="section level2">
+<h2 id="return-value">Return Value<a class="anchor" aria-label="anchor" href="#return-value"></a>
+</h2>
+<p>A tibble (<code>data.frame</code>) where each row corresponds to a single speech, including:</p>
+<ul>
+<li>Speech text</li>
+<li>Speaker name</li>
+<li>Date</li>
+<li>Title of the record</li>
+<li>URL to the full record</li>
+</ul>
+</div>
+<div class="section level2">
+<h2 id="api-information">API Information<a class="anchor" aria-label="anchor" href="#api-information"></a>
+</h2>
+<ul>
+<li>
+<strong>Base API Endpoint:</strong> <code>https://api.govinfo.gov</code>
+</li>
+<li>
+<strong>Collection Queried:</strong> <code>CREC</code> (Congressional Record)</li>
+<li>
+<strong>Sections Queried:</strong> House and Senate</li>
+<li>
+<strong>Documentation:</strong> <a href="https://api.govinfo.gov/docs/" class="external-link">GovInfo Developer Hub</a>
+</li>
+</ul>
+</div>
+<div class="section level2">
+<h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
+</h2>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">speeches</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_congressional_records.html">get_congressional_records</a></span><span class="op">(</span></span>
+<span>  API_KEY <span class="op">=</span> <span class="st">"your_api_key_here"</span>,</span>
+<span>  max_results <span class="op">=</span> <span class="fl">50</span>,</span>
+<span>  congress_session <span class="op">=</span> <span class="fl">117</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># View the first few speeches</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">speeches</span><span class="op">)</span></span></code></pre></div>
+</div>
 </div>
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>

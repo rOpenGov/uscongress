@@ -69,7 +69,8 @@
 <h3 id="get_congressional_records">
 <code>get_congressional_records()</code><a class="anchor" aria-label="anchor" href="#get_congressional_records"></a>
 </h3>
-<p>Retrieve and process Congressional Record speeches from the U.S. Government Publishing Office API.</p>
+<p>Retrieve and process Congressional Record speeches from the <a href="https://api.govinfo.gov" class="external-link">U.S. Government Publishing Office API</a>. Congressional Records are stored as raw text files; this code extracts and organizes the information into a structured format.</p>
+<p>The result is a tibble where each row represents a single speech and includes the following fields: - Speech text: The full text of the speech. - Speaker name: The name of the individual delivering the speech. - Date: The date the speech was given. - Title: The title of the Congressional Record entry. - URL: A link to the full original record.</p>
 </div>
 <div class="section level2">
 <h2 id="description">Description<a class="anchor" aria-label="anchor" href="#description"></a>
@@ -139,18 +140,6 @@
 <li>If an unsupported session is specified without dates, an error is raised.</li>
 <li>The function paginates through API results using the <code>nextOffsetMark</code> system.</li>
 <li>Each retrieved speech is cleaned, parsed, and formatted before inclusion in the final tibble.</li>
-</ul>
-</div>
-<div class="section level2">
-<h2 id="return-value">Return Value<a class="anchor" aria-label="anchor" href="#return-value"></a>
-</h2>
-<p>A tibble (<code>data.frame</code>) where each row corresponds to a single speech, including:</p>
-<ul>
-<li>Speech text</li>
-<li>Speaker name</li>
-<li>Date</li>
-<li>Title of the record</li>
-<li>URL to the full record</li>
 </ul>
 </div>
 <div class="section level2">

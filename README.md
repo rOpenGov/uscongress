@@ -39,14 +39,6 @@ get_congressional_records(API_KEY,
 - The function paginates through API results using the `nextOffsetMark` system.
 - Each retrieved speech is cleaned, parsed, and formatted before inclusion in the final tibble.
 
-The following helper functions are expected to be available and correctly implemented:
-
-- `get_search_results()`
-- `get_granules()`
-- `get_granule_summary()`
-- `get_htm_content()`
-- `process_speech()`
-
 ## Return Value
 
 A tibble (`data.frame`) where each row corresponds to a single speech, including:

@@ -1,6 +1,6 @@
 # uscongress
 
-### `get_congressional_records`
+### `get_congressional_records()`
 
 Retrieve and process Congressional Record speeches from the U.S. Government Publishing Office API.
 

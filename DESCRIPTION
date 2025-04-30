@@ -7,12 +7,12 @@ Authors@R: person("Steph", "Buongiorno",
                   role = c("aut", "cre"))
 Author: Steph Buongiorno [aut, cre]
 Maintainer: Steph Buongiorno <steph.buon@proton.me>
-Description: Fetch United States Congressional Records from the GovInfo API <https://api.govinfo.gov/docs> such as congressional 
+Description: Fetch United States Congressional Records from their API <https://api.govinfo.gov/docs/> such as congressional 
     speeches, speaker names, and metadata about congressional sessions, and detailed granule records. 
     Optional parameters allow users to specify congressional sessions, 
     and the maximum number of speeches to retrieve. Data is parsed, cleaned, and 
     returned in a structured dataframe for analysis.
-License: GPL-3
+License: GPL-3 | file LICENSE
 Encoding: UTF-8
 RoxygenNote: 7.3.2
 Imports:

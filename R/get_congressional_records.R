@@ -18,6 +18,21 @@
 #' @importFrom stringr str_squish
 #' @importFrom dplyr bind_rows
 #' @importFrom tibble as_tibble
+#'
+#' @examples
+#' if (nzchar(Sys.getenv("GOVINFO_API_KEY"))) {
+#'   # Retrieve your govinfo API key from environment
+#'   api_key <- Sys.getenv("GOVINFO_API_KEY")
+#'
+#'   # Retrieve Congressional Record speeches from the 117th Congress (2021-2023)
+#'   speeches <- get_congressional_records(
+#'     API_KEY = api_key,
+#'     max_results = 5,
+#'     congress_session = 117
+#'   )
+#'   head(speeches)
+#' }
+#'
 #' @export
 #'
 get_congressional_records <- function(API_KEY,

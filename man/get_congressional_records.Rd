@@ -32,3 +32,18 @@ Queries the Congressional Record collection for a given session and date range,
 retrieves speech text and associated metadata from granules, and processes the
 information into a structured tibble. Supports limiting the number of speeches collected.
 }
+\examples{
+if (nzchar(Sys.getenv("GOVINFO_API_KEY"))) {
+  # Retrieve your govinfo API key from environment
+  api_key <- Sys.getenv("GOVINFO_API_KEY")
+
+  # Retrieve Congressional Record speeches from the 117th Congress (2021-2023)
+  speeches <- get_congressional_records(
+    API_KEY = api_key,
+    max_results = 5,
+    congress_session = 117
+  )
+  head(speeches)
+}
+
+}

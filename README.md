@@ -18,7 +18,7 @@ options(repos = c(
   ropengov = 'https://ropengov.r-universe.dev',
   CRAN = 'https://cloud.r-project.org'))
   
-# Download and install usdoj
+# Download and install uscongress
 install.packages("uscongress")
 ```
 

@@ -1,5 +1,9 @@
 # uscongress
 
+[![](https://cranlogs.r-pkg.org/badges/uscongress)](https://cran.r-project.org/package=uscongress)
+[![](https://cranlogs.r-pkg.org/badges/grand-total/uscongress)](https://cran.r-project.org/package=uscongress)
+[![](https://www.r-pkg.org/badges/version/uscongress)](https://CRAN.R-project.org/package=uscongress)
+
 ### `get_congressional_records()`
 
 Retrieve and process Congressional Record speeches from the [U.S. Government Publishing Office API](https://api.govinfo.gov). Congressional Records are stored as raw text files; this code extracts and organizes the information into a structured format.

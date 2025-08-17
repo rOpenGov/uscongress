@@ -1,7 +1,7 @@
 Package: uscongress
 Type: Package
 Title: Fetch United States Congressional Records (1995-Present)
-Version: 1.0.0
+Version: 1.0.1
 Authors@R: person("Steph", "Buongiorno",
                   email = "steph.buon@proton.me",
                   role = c("aut", "cre"))

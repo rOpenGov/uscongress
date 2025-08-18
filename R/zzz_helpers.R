@@ -236,7 +236,7 @@ get_htm_content <- function(API_KEY, BASE_API_URL, package_id, granule_id) {
 #' @importFrom stringr str_replace_all
 #' @importFrom stringr str_squish
 process_speech <- function(API_KEY, record_url, record_date, record_title, htm_content) {
-  page <- read_html(htm_content)
+  page <- read_html(htm_content, options = "HUGE")
   pre_node <- html_node(page, "pre")
 
   if (is.null(pre_node)) {

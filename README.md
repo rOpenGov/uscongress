@@ -4,6 +4,10 @@
 [![](https://cranlogs.r-pkg.org/badges/grand-total/uscongress)](https://cran.r-project.org/package=uscongress)
 [![](https://www.r-pkg.org/badges/version/uscongress)](https://CRAN.R-project.org/package=uscongress)
 
+If this project helped, consider supporting it:
+
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00)](https://buymeacoffee.com/stephbuon)
+
 ### Install 
 
 Install from CRAN:

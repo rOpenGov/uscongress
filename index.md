@@ -57,6 +57,7 @@ associated granules from the GovInfo API.
 ## Usage
 
 ``` r
+
 get_congressional_records(API_KEY,
                            max_results = NULL,
                            date_from = NULL,
@@ -66,13 +67,13 @@ get_congressional_records(API_KEY,
 
 ## Arguments
 
-| Argument           | Type    | Description                                                                                                                  |
-|--------------------|---------|------------------------------------------------------------------------------------------------------------------------------|
-| `API_KEY`          | String  | Your GovInfo API key. Required to authenticate API requests.                                                                 |
-| `max_results`      | Integer | Optional. Maximum number of speeches to retrieve. If `NULL`, retrieves all available speeches in the session and date range. |
-| `date_from`        | String  | Optional. Start date (`"YYYY-MM-DD"`) for filtering speeches. If `NULL`, determined automatically by `congress_session`.     |
-| `date_to`          | String  | Optional. End date (`"YYYY-MM-DD"`) for filtering speeches. If `NULL`, determined automatically by `congress_session`.       |
-| `congress_session` | Integer | Congressional session number (e.g., 117 for 2021–2023). Defaults to 117.                                                     |
+| Argument | Type | Description |
+|----|----|----|
+| `API_KEY` | String | Your GovInfo API key. Required to authenticate API requests. |
+| `max_results` | Integer | Optional. Maximum number of speeches to retrieve. If `NULL`, retrieves all available speeches in the session and date range. |
+| `date_from` | String | Optional. Start date (`"YYYY-MM-DD"`) for filtering speeches. If `NULL`, determined automatically by `congress_session`. |
+| `date_to` | String | Optional. End date (`"YYYY-MM-DD"`) for filtering speeches. If `NULL`, determined automatically by `congress_session`. |
+| `congress_session` | Integer | Congressional session number (e.g., 117 for 2021–2023). Defaults to 117. |
 
 ## Details
 
@@ -97,6 +98,7 @@ get_congressional_records(API_KEY,
 ## Example
 
 ``` r
+
 speeches <- get_congressional_records(
   API_KEY = "your_api_key_here",
   max_results = 50,
